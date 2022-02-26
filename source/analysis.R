@@ -52,15 +52,18 @@ urbanicity_highest_incarceration <- data %>%
   filter(total_jail_pop == max(total_jail_pop)) %>%
   pull(urbanicity)
 
-# Trend over time chart: the white population in jail from 2000 to 2010
+# Trend over time chart: the white population in jail from 2001 to 2010
 white_population_jail_time <- data %>%
   select(year, white_jail_pop) %>%
-  filter(year >= 2000, year <= 2010) %>%
+  filter(year >= 2001, year <= 2010) %>%
   na.omit()%>%
   group_by(year) %>%
   summarize(total_white_jail_pop = sum(white_jail_pop)) 
-ggplot(white_population_jail_time, aes(x=year, y = total_white_jail_pop) ) +
-    geom_col(width = 0.5, position = position_dodge(0.7))
+chart_1 <- ggplot(white_population_jail_time, aes(x=year, y = total_white_jail_pop, fill="national total" )) +
+    geom_col(width = 0.5, position = position_dodge(0.7)) +
+    labs(title = "National number of white people in jail (2001-2010)") +
+    labs(y = "Number of people in jail")
+    
 
 # The amount of white vs black people in jail from 2000 to 2010
 white_population <- data %>%
@@ -77,8 +80,11 @@ black_population <- data %>%
   summarize(total_black_jail_pop = sum(black_jail_pop))
 black_white_jail_population <- full_join(white_population, black_population, by="year")
 black_white_jail_population_long <- melt(black_white_jail_population, id="year")
-ggplot(data=black_white_jail_population_long, aes(x=year, y=value, colour=variable)) +
-  geom_line()
+chart_2 <- ggplot(data=black_white_jail_population_long, aes(x=year, y=value, colour=variable)) +
+  geom_line() +
+  labs(y = "Number of people in jail") +
+  labs(title = "National number of white and black people in jail (2000-2010") +
+  labs(colour = "Different Race")
 
 #The difference between the white and black incarceration rate for each state in 2012
 percentage_black_incarcerated <- data %>%
@@ -96,11 +102,11 @@ percentage_white_incarcerated <- data %>%
   summarize(white_incarcerated_proportion = sum(white_prison_pop)/sum(white_pop_15to64))
 comparison_incarceration_rate <- full_join(percentage_black_incarcerated, percentage_white_incarcerated, by="state") %>%
   mutate(difference = black_incarcerated_proportion / white_incarcerated_proportion)
-
-plot_usmap(data = comparison_incarceration_rate, values = "difference", color = "grey") +
+map_1 <- plot_usmap(data = comparison_incarceration_rate, values = "difference", color = "grey") +
   scale_fill_continuous(
-    low = "grey", high = "red", name="Multiple times bigger black incarceration (2012", label = scales::comma) +
-  theme(legend.position = "right")
+    low = "lightblue", high = "navy", name="How many times larger proportion of black people in jail (2012)", label = scales::comma) +
+  theme(legend.position = "right") +
+  labs(title = "White vs Black people difference in proportion of population in jail (2012)")
     
                           
 

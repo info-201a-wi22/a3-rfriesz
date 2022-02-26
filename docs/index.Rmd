@@ -37,9 +37,28 @@ Percentage of total white population in jail in 2018
 total_percent_white_population_jail
 ```
 
-###Variable 5
+### Variable 5
 The urbanicity with the highest total jail population
 ```{r}
 urbanicity_highest_incarceration
 ```
+
+# Chart 1: White population in jail from 2001 to 2010
+The x axis is the year from 2001 to 2010 and the y axis is the number of white people in jail in the whole United States. From the graph we see a steady increase from 2000 to 2006 in the number of white people in jail, and then from 2006 until 2010 there is a decline in the total number of white people in jail. I designed this graph so that it is very easy to notice the change and magnitude of change in the white population in jail over almost a decade. It was interesting to not how there seemed to be a significant shift from 2006 until the end of the graph of a decreasing white jail population.
+```{r}
+chart_1
+```
+
+# Chart 2: Total white population and total black population in jail from 2000 to 2010
+The year is on the x axis and the number of people in jail is on the y axis. The graph shows how starting in 2000 the number of white and black people in jail was relatively equal, and from there the difference grows. By 2006 that is the biggest difference in white jail population versus black jail population. While this graph does show that there are more white people in jail, it is important to keep in mind that there are many more white people in the US than there are black people. The graph was designed this way to make it easy to notice the difference in rates at which the population of white people in jail changed in comparison to the population of black people in jail. I was surprised to see that the rate of white people in jail increased at a faster rate from 2000 to 2006, but it is important to note how much smaller the total black population of the USA is. 
+```{r}
+chart_2
+```
+# Map
+The map depicts how many time greater the proportion of black people in jail out of the total black population is to the proportion of white people in jail out of the total white population. The map shows that the state with the greatest difference is Minnesota, where in 2012 there were over 11 times the proportion of black people in jail compared compared to white people in jail. I designed the map because I think it gets to an important question, which is in what parts of the country is the inequity in incarceration the worst. I was surprise to see that Washington state was equally as bad as most southern states. California also surprised me because the amount of times larger the proportion of black people in jail to white people in jail was one of the largest out of all the states.
+```{r}
+map_1
+```
+
+
 
