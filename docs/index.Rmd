@@ -1,0 +1,45 @@
+---
+title: "Incarceration Report"
+author: "Ryan Friesz"
+date: "2/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+source("../source/analysis.R")
+```
+
+# Introduction
+This report uses data analysis and visualization to expose how incarceration in the United States disproportionately effects people of color. This report will analyze data about how many people of color are incarcerated, the ratio compared to other races, and changes over time and locations in the United States to report on the injustice.
+
+### Variable 1
+The state in the US with the highest number of black people incarcerated in jail.
+```{r}
+highest_state_black_incarcerated
+```
+
+### Variable 2
+Percentage of total Latino population in jail in 2018
+```{r}
+total_percent_latino_population_jail
+```
+
+### Variable 3
+Percentage of total black population in jail in 2018
+```{r}
+total_percent_black_population_jail
+```
+
+### Variable 4
+Percentage of total white population in jail in 2018
+```{r}
+total_percent_white_population_jail
+```
+
+###Variable 5
+The urbanicity with the highest total jail population
+```{r}
+urbanicity_highest_incarceration
+```
+
